@@ -7,11 +7,11 @@ export async function analyzeResume(
   targetRole: string,
   experienceLevel: ExperienceLevel
 ): Promise<ResumeAnalysis> {
-  const apiKey = process.env.API_KEY;
+  const apiKey = import.meta.env.VITE_API_KEY;
 
   if (!apiKey || apiKey === "undefined" || apiKey.length < 5) {
     throw new Error(
-      "DEPLOYMENT ERROR: API_KEY is missing. To fix this, go to your Vercel Dashboard -> Settings -> Environment Variables and add a key named 'API_KEY' with your Gemini API value."
+      "DEPLOYMENT ERROR: API_KEY is missing. To fix this, go to your Vercel Dashboard -> Settings -> Environment Variables and add a key named 'VITE_API_KEY' with your Gemini API value."
     );
   }
 
