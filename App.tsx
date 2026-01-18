@@ -258,7 +258,7 @@ const App: React.FC = () => {
 
       <footer className="py-8 mt-auto border-t bg-white">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">© 2024 Enterprise Talent Systems Deployment</p>
+          <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">© 2026 Enterprise Talent Systems Deployment</p>
         </div>
       </footer>
       <Analytics />
