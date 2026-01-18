@@ -1,0 +1,161 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Section</title>
+<head><link rel="preload" href="/_next/static/media/e4af272ccee01ff0-s.p.woff2" as="font" crossorigin="" type="font/woff2"></head>
+<style>
+    body {
+        font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
+
+        background-color: #000;
+        color: #fff;
+        font-family: 'Courier New', Courier, monospace; /* Monospace font for a similar look */
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .container {
+        padding: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+        flex: 1; /* Takes up remaining space, pushing footer down */
+    }
+
+    h1 {
+        text-align: left;
+        font-size: 2em;
+        margin-bottom: 40px;
+    }
+
+    .team-members {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap; /* Allows stacking on smaller screens */
+        gap: 40px;
+    }
+
+    .member {
+        flex: 1 1 300px; /* Flex-grow, flex-shrink, initial basis */
+        text-align: left;
+        max-width: 400px;
+    }
+
+    .member-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+
+    .member-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(100%); /* Black and white filter */
+    }
+
+    h2 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+    }
+
+    ul {
+        list-style-type: disc;
+        padding-left: 20px;
+        line-height: 1.5;
+        font-size: 0.9em;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+
+    footer {
+        padding: 20px;
+        text-align: center;
+        font-size: 0.8em;
+    }
+
+    footer a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 10px;
+        text-transform: uppercase;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+
+    /* Responsive Design for smaller screens */
+    @media (max-width: 768px) {
+        .team-members {
+            flex-direction: column;
+            align-items: center;
+        }
+        .member {
+            text-align: center; /* Center align content on mobile */
+        }
+        ul {
+            text-align: left; /* Keep lists left-aligned */
+            display: inline-block;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Team</h1>
+    <div class="team-members">
+        <div class="member">
+            <div class="member-image">
+                <img src="image_0.png" alt="Himanshu Joshi"> </div>
+            <h2><a style="text-decoration:none;" href="https://www.linkedin.com/in/himanshu-joshi-535b4127b">Himanshu Joshi</a></h2>
+            <ul>
+                <li>Generalist: sports (national futsal), gaming (EU semi-pro in Fortnite and PUBG)</li>
+                <li>Built several online communities with thousands of users and sold thousands of premium software licenses.</li>
+            </ul>
+        </div>
+
+        <div class="member">
+            <div class="member-image">
+                <img src="image_1.png" alt="Modi" style="object-position: right center;"> </div>
+            <h2><a style="text-decoration:none;" href="https://www.linkedin.com/in/krishnkant-modi-2b82b52b4/">Kirshnkant Modi</a></h2>
+            <ul>
+                <li>Top CS student at University of Warsaw</li>
+                <li>Two-time medalist at the Polish Informatics Olympiad</li>
+                <li>Youngest dev on HFT core team at Match-Trade</li>
+            </ul>
+        </div>
+    </div>
+       <div class="member">
+            <div class="member-image">
+                <img src="image_2.png" alt="Gurudatt" style="object-position: right center;"> </div>
+            <h2><a style="text-decoration:none;" href="https://www.linkedin.com/in/gurudatt-choudhary">Gurudatt Choudhary</a></h2>
+            <ul>
+                <li>Top CS student at University of Warsaw</li>
+                <li>Two-time medalist at the Polish Informatics Olympiad</li>
+                <li>Youngest dev on HFT core team at Match-Trade</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+<footer>
+    <a href="#">Home</a>
+    <a href="#">Thesis</a>
+    <a href="#">Team</a>
+</footer>
+
+</body>
+</html>
