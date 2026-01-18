@@ -122,4 +122,4 @@ export async function analyzeResume(
     }
     throw error;
   }
-}
+} 
