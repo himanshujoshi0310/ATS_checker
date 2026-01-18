@@ -8,11 +8,6 @@ export async function analyzeResume(
   experienceLevel: ExperienceLevel
 ): Promise<ResumeAnalysis> {
   const apiKey = import.meta.env.VITE_API_KEY;
-  
-  // Debug logging
-  console.log("DEBUG: import.meta.env keys:", Object.keys(import.meta.env));
-  console.log("DEBUG: VITE_API_KEY =", apiKey ? "✓ Found" : "✗ Missing");
-  console.log("DEBUG: VITE_API_KEY length =", apiKey?.length);
 
   if (!apiKey || apiKey === "undefined" || apiKey.length < 5) {
     throw new Error(
