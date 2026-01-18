@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { analyzeResume } from './services/geminiService';
 import { ResumeAnalysis, ExperienceLevel } from './types';
 import { PREDEFINED_ROLES } from './constants';
@@ -260,6 +261,7 @@ const App: React.FC = () => {
           <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">© 2024 Enterprise Talent Systems Deployment</p>
         </div>
       </footer>
+      <Analytics />
     </div>
   );
 };
