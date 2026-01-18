@@ -134,13 +134,10 @@ const App: React.FC = () => {
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-slate-900 leading-none">Enterprise ATS</span>
-              <span className="text-[10px] text-indigo-600 font-bold tracking-tighter uppercase">Vercel Ready v3.4</span>
+              <span className="text-[10px] text-indigo-600 font-bold tracking-tighter uppercase">Vercel Ready v3.3</span>
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <a href="/team"  className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">
-            Meet Our  Team
-            </a>
             <div className="hidden sm:flex items-center gap-1.5 text-xs font-bold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">
               <Globe size={14} /> Server Connected
             </div>
@@ -261,7 +258,7 @@ const App: React.FC = () => {
 
       <footer className="py-8 mt-auto border-t bg-white">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">© 2026 Enterprise Talent Systems Deployment</p>
+          <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">© 2024 Enterprise Talent Systems Deployment</p>
         </div>
       </footer>
       <Analytics />
