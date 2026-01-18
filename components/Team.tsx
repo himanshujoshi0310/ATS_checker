@@ -12,34 +12,34 @@ const Team: React.FC = () => {
       minHeight: '100vh'
     }}>
       <div style={{
-        padding: '40px',
-        maxWidth: '1200px',
+        padding: '60px',
+        maxWidth: '1800px',
         margin: '0 auto',
         flex: 1
       }}>
         <h1 style={{
           textAlign: 'left',
-          fontSize: '2em',
-          marginBottom: '40px'
+          fontSize: '3em',
+          marginBottom: '60px'
         }}>Team</h1>
         
         <div style={{
           display: 'flex',
           justifyContent: 'space-around',
           flexWrap: 'wrap',
-          gap: '40px'
+          gap: '60px'
         }}>
           <div style={{
-            flex: '1 1 300px',
+            flex: '1 1 450px',
             textAlign: 'left',
-            maxWidth: '400px'
+            maxWidth: '600px'
           }}>
             <div style={{
-              width: '150px',
-              height: '150px',
+              width: '225px',
+              height: '225px',
               borderRadius: '50%',
               overflow: 'hidden',
-              marginBottom: '20px'
+              marginBottom: '30px'
             }}>
               <img 
                 src="/image_0.png" 
@@ -53,8 +53,8 @@ const Team: React.FC = () => {
               />
             </div>
             <h2 style={{
-              fontSize: '1.2em',
-              marginBottom: '10px',
+              fontSize: '1.8em',
+              marginBottom: '15px',
               textTransform: 'uppercase'
             }}>
               <a 
@@ -66,33 +66,30 @@ const Team: React.FC = () => {
             </h2>
             <ul style={{
               listStyleType: 'disc',
-              paddingLeft: '20px',
+              paddingLeft: '30px',
               lineHeight: 1.5,
-              fontSize: '0.9em'
+              fontSize: '1.35em'
             }}>
-              <li style={{ marginBottom: '10px' }}>
-              Focused on designing clean, scalable, and delightful digital products. 
+              <li style={{ marginBottom: '15px' }}>
+                Generalist: sports (national futsal), gaming (EU semi-pro in Fortnite and PUBG)
               </li>
-              <li style={{ marginBottom: '10px' }}>
-              UI/UX principles, and innovative development practices.
+              <li style={{ marginBottom: '15px' }}>
+                Built several online communities with thousands of users and sold thousands of premium software licenses.
               </li>
-              <li style={{ marginBottom: '10px' }}>
-              Continuously leveling up with the latest in web technologies  </li>
-              
             </ul>
           </div>
 
           <div style={{
-            flex: '1 1 300px',
+            flex: '1 1 450px',
             textAlign: 'left',
-            maxWidth: '400px'
+            maxWidth: '600px'
           }}>
             <div style={{
-              width: '150px',
-              height: '150px',
+              width: '225px',
+              height: '225px',
               borderRadius: '50%',
               overflow: 'hidden',
-              marginBottom: '20px'
+              marginBottom: '30px'
             }}>
               <img 
                 src="/image_1.png" 
@@ -107,8 +104,8 @@ const Team: React.FC = () => {
               />
             </div>
             <h2 style={{
-              fontSize: '1.2em',
-              marginBottom: '10px',
+              fontSize: '1.8em',
+              marginBottom: '15px',
               textTransform: 'uppercase'
             }}>
               <a 
@@ -120,27 +117,27 @@ const Team: React.FC = () => {
             </h2>
             <ul style={{
               listStyleType: 'disc',
-              paddingLeft: '20px',
+              paddingLeft: '30px',
               lineHeight: 1.5,
-              fontSize: '0.9em'
+              fontSize: '1.35em'
             }}>
-              <li style={{ marginBottom: '10px' }}>Top CS student at University</li>
-              <li style={{ marginBottom: '10px' }}>Passionate Developer who love to build new things by code.</li>
-              <li style={{ marginBottom: '10px' }}>Solving Problem That doesn't even exists</li>
+              <li style={{ marginBottom: '15px' }}>Top CS student at University of Warsaw</li>
+              <li style={{ marginBottom: '15px' }}>Two-time medalist at the Polish Informatics Olympiad</li>
+              <li style={{ marginBottom: '15px' }}>Youngest dev on HFT core team at Match-Trade</li>
             </ul>
           </div>
 
           <div style={{
-            flex: '1 1 300px',
+            flex: '1 1 450px',
             textAlign: 'left',
-            maxWidth: '400px'
+            maxWidth: '600px'
           }}>
             <div style={{
-              width: '150px',
-              height: '150px',
+              width: '225px',
+              height: '225px',
               borderRadius: '50%',
               overflow: 'hidden',
-              marginBottom: '20px'
+              marginBottom: '30px'
             }}>
               <img 
                 src="/image_2.png" 
@@ -155,8 +152,8 @@ const Team: React.FC = () => {
               />
             </div>
             <h2 style={{
-              fontSize: '1.2em',
-              marginBottom: '10px',
+              fontSize: '1.8em',
+              marginBottom: '15px',
               textTransform: 'uppercase'
             }}>
               <a 
@@ -168,26 +165,26 @@ const Team: React.FC = () => {
             </h2>
             <ul style={{
               listStyleType: 'disc',
-              paddingLeft: '20px',
+              paddingLeft: '30px',
               lineHeight: 1.5,
-              fontSize: '0.9em'
+              fontSize: '1.35em'
             }}>
-              <li style={{ marginBottom: '10px' }}>Cyber Security Researcher</li>
-              <li style={{ marginBottom: '10px' }}>Ethical Hacker who love to break the code </li>
-              <li style={{ marginBottom: '10px' }}>Give brain pain to developers</li>
+              <li style={{ marginBottom: '15px' }}>Top CS student at University of Warsaw</li>
+              <li style={{ marginBottom: '15px' }}>Two-time medalist at the Polish Informatics Olympiad</li>
+              <li style={{ marginBottom: '15px' }}>Youngest dev on HFT core team at Match-Trade</li>
             </ul>
           </div>
         </div>
       </div>
 
       <footer style={{
-        padding: '20px',
+        padding: '30px',
         textAlign: 'center',
-        fontSize: '0.8em'
+        fontSize: '1.2em'
       }}>
-        <a href="/" style={{ color: '#fff', textDecoration: 'none', margin: '0 10px', textTransform: 'uppercase' }}>Home</a>
-    
-        <a href="/team" style={{ color: '#fff', textDecoration: 'none', margin: '0 10px', textTransform: 'uppercase' }}>Team</a>
+        <a href="/" style={{ color: '#fff', textDecoration: 'none', margin: '0 15px', textTransform: 'uppercase' }}>Home</a>
+        <a href="#" style={{ color: '#fff', textDecoration: 'none', margin: '0 15px', textTransform: 'uppercase' }}>Thesis</a>
+        <a href="/team" style={{ color: '#fff', textDecoration: 'none', margin: '0 15px', textTransform: 'uppercase' }}>Team</a>
       </footer>
     </div>
   );
