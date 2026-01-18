@@ -134,7 +134,7 @@ const App: React.FC = () => {
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-slate-900 leading-none">Enterprise ATS</span>
-              <span className="text-[10px] text-indigo-600 font-bold tracking-tighter uppercase">Vercel Ready v3.3</span>
+              <span className="text-[10px] text-indigo-600 font-bold tracking-tighter uppercase">Vercel Ready v3.4</span>
             </div>
           </div>
           <div className="flex items-center gap-4">
