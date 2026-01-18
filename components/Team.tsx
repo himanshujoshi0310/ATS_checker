@@ -12,179 +12,122 @@ const Team: React.FC = () => {
       minHeight: '100vh'
     }}>
       <div style={{
-        padding: '60px',
-        maxWidth: '1800px',
+        padding: '48px',
+        maxWidth: '1600px',
         margin: '0 auto',
         flex: 1
       }}>
         <h1 style={{
           textAlign: 'left',
-          fontSize: '3em',
-          marginBottom: '60px'
-        }}>Team</h1>
+          fontSize: '2.4em',
+          marginBottom: '48px'
+        }}>
+          Team
+        </h1>
         
         <div style={{
           display: 'flex',
           justifyContent: 'space-around',
           flexWrap: 'wrap',
-          gap: '60px'
+          gap: '48px'
         }}>
-          <div style={{
-            flex: '1 1 450px',
-            textAlign: 'left',
-            maxWidth: '600px'
-          }}>
-            <div style={{
-              width: '225px',
-              height: '225px',
-              borderRadius: '50%',
-              overflow: 'hidden',
-              marginBottom: '30px'
-            }}>
-              <img 
-                src="/image_0.png" 
-                alt="Himanshu Joshi"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  filter: 'grayscale(100%)'
-                }}
-              />
-            </div>
-            <h2 style={{
-              fontSize: '1.8em',
-              marginBottom: '15px',
-              textTransform: 'uppercase'
-            }}>
-              <a 
-                style={{ textDecoration: 'none', color: '#fff' }} 
-                href="https://www.linkedin.com/in/himanshu-joshi-535b4127b"
-              >
-                Himanshu Joshi
-              </a>
-            </h2>
-            <ul style={{
-              listStyleType: 'disc',
-              paddingLeft: '30px',
-              lineHeight: 1.5,
-              fontSize: '1.35em'
-            }}>
-              <li style={{ marginBottom: '15px' }}>
-                Generalist: sports (national futsal), gaming (EU semi-pro in Fortnite and PUBG)
-              </li>
-              <li style={{ marginBottom: '15px' }}>
-                Built several online communities with thousands of users and sold thousands of premium software licenses.
-              </li>
-            </ul>
-          </div>
+          {[
+            {
+              img: '/image_0.png',
+              name: 'Himanshu Joshi',
+              link: 'https://www.linkedin.com/in/himanshu-joshi-535b4127b',
+              points: [
+                'Focused on designing scalable and delightful digital products, UI/UX principles.',
+                'Continuously leveling up with the latest in web technologies'
+                
+              ]
+            },
+            {
+              img: '/image_1.png',
+              name: 'Krishnkant Modi',
+              link: 'https://www.linkedin.com/in/krishnkant-modi-2b82b52b4/',
+              points: [
+                'Top CS student at University',
+                'Passionate Developer who love to build new things by code.',
+                'Solve Problems that doesn\'t even exists'
+              ]
+            },
+            {
+              img: '/image_2.png',
+              name: 'Gurudatt Choudhary',
+              link: 'https://www.linkedin.com/in/gurudatt-choudhary',
+              points: [
+                'Cybersecurity researcher, web security specialist',
+                'Ethical hacker & Nation Top Security Researcher',
+                'CTF creator and & Player '
+              ]
+            }
+          ].map((member, i) => (
+            <div
+              key={i}
+              style={{
+                flex: '1 1 400px',
+                textAlign: 'left',
+                maxWidth: '520px'
+              }}
+            >
+              <div style={{
+                width: '180px',
+                height: '180px',
+                borderRadius: '50%',
+                overflow: 'hidden',
+                marginBottom: '24px'
+              }}>
+                <img 
+                  src={member.img}
+                  alt={member.name}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    filter: 'grayscale(100%)'
+                  }}
+                />
+              </div>
 
-          <div style={{
-            flex: '1 1 450px',
-            textAlign: 'left',
-            maxWidth: '600px'
-          }}>
-            <div style={{
-              width: '225px',
-              height: '225px',
-              borderRadius: '50%',
-              overflow: 'hidden',
-              marginBottom: '30px'
-            }}>
-              <img 
-                src="/image_1.png" 
-                alt="Modi"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  filter: 'grayscale(100%)',
-                  objectPosition: 'right center'
-                }}
-              />
-            </div>
-            <h2 style={{
-              fontSize: '1.8em',
-              marginBottom: '15px',
-              textTransform: 'uppercase'
-            }}>
-              <a 
-                style={{ textDecoration: 'none', color: '#fff' }} 
-                href="https://www.linkedin.com/in/krishnkant-modi-2b82b52b4/"
-              >
-                Krishnkant Modi
-              </a>
-            </h2>
-            <ul style={{
-              listStyleType: 'disc',
-              paddingLeft: '30px',
-              lineHeight: 1.5,
-              fontSize: '1.35em'
-            }}>
-              <li style={{ marginBottom: '15px' }}>Top CS student at University of Warsaw</li>
-              <li style={{ marginBottom: '15px' }}>Two-time medalist at the Polish Informatics Olympiad</li>
-              <li style={{ marginBottom: '15px' }}>Youngest dev on HFT core team at Match-Trade</li>
-            </ul>
-          </div>
+              <h2 style={{
+                fontSize: '1.5em',
+                marginBottom: '12px',
+                textTransform: 'uppercase'
+              }}>
+                <a 
+                  href={member.link}
+                  style={{ textDecoration: 'none', color: '#fff' }}
+                >
+                  {member.name}
+                </a>
+              </h2>
 
-          <div style={{
-            flex: '1 1 450px',
-            textAlign: 'left',
-            maxWidth: '600px'
-          }}>
-            <div style={{
-              width: '225px',
-              height: '225px',
-              borderRadius: '50%',
-              overflow: 'hidden',
-              marginBottom: '30px'
-            }}>
-              <img 
-                src="/image_2.png" 
-                alt="Gurudatt"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  filter: 'grayscale(100%)',
-                  objectPosition: 'right center'
-                }}
-              />
+              <ul style={{
+                listStyleType: 'disc',
+                paddingLeft: '24px',
+                lineHeight: 1.5,
+                fontSize: '1.1em'
+              }}>
+                {member.points.map((p, idx) => (
+                  <li key={idx} style={{ marginBottom: '12px' }}>
+                    {p}
+                  </li>
+                ))}
+              </ul>
             </div>
-            <h2 style={{
-              fontSize: '1.8em',
-              marginBottom: '15px',
-              textTransform: 'uppercase'
-            }}>
-              <a 
-                style={{ textDecoration: 'none', color: '#fff' }} 
-                href="https://www.linkedin.com/in/gurudatt-choudhary"
-              >
-                Gurudatt Choudhary
-              </a>
-            </h2>
-            <ul style={{
-              listStyleType: 'disc',
-              paddingLeft: '30px',
-              lineHeight: 1.5,
-              fontSize: '1.35em'
-            }}>
-              <li style={{ marginBottom: '15px' }}>Top CS student at University of Warsaw</li>
-              <li style={{ marginBottom: '15px' }}>Two-time medalist at the Polish Informatics Olympiad</li>
-              <li style={{ marginBottom: '15px' }}>Youngest dev on HFT core team at Match-Trade</li>
-            </ul>
-          </div>
+          ))}
         </div>
       </div>
 
       <footer style={{
-        padding: '30px',
+        padding: '24px',
         textAlign: 'center',
-        fontSize: '1.2em'
+        fontSize: '1em'
       }}>
-        <a href="/" style={{ color: '#fff', textDecoration: 'none', margin: '0 15px', textTransform: 'uppercase' }}>Home</a>
-        <a href="#" style={{ color: '#fff', textDecoration: 'none', margin: '0 15px', textTransform: 'uppercase' }}>Thesis</a>
-        <a href="/team" style={{ color: '#fff', textDecoration: 'none', margin: '0 15px', textTransform: 'uppercase' }}>Team</a>
+        <a href="/" style={{ color: '#fff', textDecoration: 'none', margin: '0 12px', textTransform: 'uppercase' }}>Home</a>
+        <a href="#" style={{ color: '#fff', textDecoration: 'none', margin: '0 12px', textTransform: 'uppercase' }}>Thesis</a>
+        <a href="/team" style={{ color: '#fff', textDecoration: 'none', margin: '0 12px', textTransform: 'uppercase' }}>Team</a>
       </footer>
     </div>
   );
