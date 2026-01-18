@@ -115,7 +115,7 @@ const Team: React.FC = () => {
                 style={{ textDecoration: 'none', color: '#fff' }} 
                 href="https://www.linkedin.com/in/krishnkant-modi-2b82b52b4/"
               >
-                Kirshnkant Modi
+                Krishnkant Modi
               </a>
             </h2>
             <ul style={{
