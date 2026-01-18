@@ -42,7 +42,7 @@ const Team: React.FC = () => {
               marginBottom: '20px'
             }}>
               <img 
-                src="image_0.png" 
+                src="/image_0.png" 
                 alt="Himanshu Joshi"
                 style={{
                   width: '100%',
@@ -95,7 +95,7 @@ const Team: React.FC = () => {
               marginBottom: '20px'
             }}>
               <img 
-                src="image_1.png" 
+                src="/image_1.png" 
                 alt="Modi"
                 style={{
                   width: '100%',
@@ -143,7 +143,7 @@ const Team: React.FC = () => {
               marginBottom: '20px'
             }}>
               <img 
-                src="image_2.png" 
+                src="/image_2.png" 
                 alt="Gurudatt"
                 style={{
                   width: '100%',
