@@ -138,7 +138,7 @@ const App: React.FC = () => {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <a href="/team"  className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">
+            <a href="/team"  className="rounded-xl text-[10px] font-bold transition-all border bg-indigo-600 border-indigo-600 text-white shadow-lg">
             Meet Our Team
             </a>
             <div className="hidden sm:flex items-center gap-1.5 text-xs font-bold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">
