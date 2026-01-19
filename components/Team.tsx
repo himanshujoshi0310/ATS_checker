@@ -12,24 +12,23 @@ const Team: React.FC = () => {
       minHeight: '100vh'
     }}>
       <div style={{
-        padding: '48px',
-        maxWidth: '1600px',
+        padding: '36px',
+        maxWidth: '1400px',
         margin: '0 auto',
         flex: 1
       }}>
         <h1 style={{
-          textAlign: 'left',
-          fontSize: '2.4em',
-          marginBottom: '48px'
+          fontSize: '1.9em',
+          marginBottom: '36px'
         }}>
           Team
         </h1>
-        
+
         <div style={{
           display: 'flex',
           justifyContent: 'space-around',
           flexWrap: 'wrap',
-          gap: '48px'
+          gap: '36px'
         }}>
           {[
             {
@@ -66,17 +65,16 @@ const Team: React.FC = () => {
             <div
               key={i}
               style={{
-                flex: '1 1 400px',
-                textAlign: 'left',
-                maxWidth: '520px'
+                flex: '1 1 340px',
+                maxWidth: '420px'
               }}
             >
               <div style={{
-                width: '180px',
-                height: '180px',
+                width: '140px',
+                height: '140px',
                 borderRadius: '50%',
                 overflow: 'hidden',
-                marginBottom: '24px'
+                marginBottom: '18px'
               }}>
                 <img 
                   src={member.img}
@@ -91,28 +89,22 @@ const Team: React.FC = () => {
               </div>
 
               <h2 style={{
-                fontSize: '1.5em',
-                marginBottom: '12px',
+                fontSize: '1.25em',
+                marginBottom: '8px',
                 textTransform: 'uppercase'
               }}>
-                <a 
-                  href={member.link}
-                  style={{ textDecoration: 'none', color: '#fff' }}
-                >
+                <a href={member.link} style={{ color: '#fff', textDecoration: 'none' }}>
                   {member.name}
                 </a>
               </h2>
 
               <ul style={{
-                listStyleType: 'disc',
-                paddingLeft: '24px',
-                lineHeight: 1.5,
-                fontSize: '1.1em'
+                paddingLeft: '18px',
+                lineHeight: 1.45,
+                fontSize: '0.95em'
               }}>
                 {member.points.map((p, idx) => (
-                  <li key={idx} style={{ marginBottom: '12px' }}>
-                    {p}
-                  </li>
+                  <li key={idx} style={{ marginBottom: '8px' }}>{p}</li>
                 ))}
               </ul>
             </div>
@@ -121,13 +113,13 @@ const Team: React.FC = () => {
       </div>
 
       <footer style={{
-        padding: '24px',
+        padding: '18px',
         textAlign: 'center',
-        fontSize: '1em'
+        fontSize: '0.85em'
       }}>
-        <a href="/" style={{ color: '#fff', textDecoration: 'none', margin: '0 12px', textTransform: 'uppercase' }}>Home</a>
-        <a href="#" style={{ color: '#fff', textDecoration: 'none', margin: '0 12px', textTransform: 'uppercase' }}>Thesis</a>
-        <a href="/team" style={{ color: '#fff', textDecoration: 'none', margin: '0 12px', textTransform: 'uppercase' }}>Team</a>
+        <a href="/" style={{ color: '#fff', margin: '0 10px', textDecoration: 'none' }}>HOME</a>
+        <a href="#" style={{ color: '#fff', margin: '0 10px', textDecoration: 'none' }}>THESIS</a>
+        <a href="/team" style={{ color: '#fff', margin: '0 10px', textDecoration: 'none' }}>TEAM</a>
       </footer>
     </div>
   );
