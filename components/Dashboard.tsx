@@ -10,7 +10,8 @@ import {
   Target, 
   Zap,
   Briefcase,
-  Lightbulb
+  Lightbulb,
+  Printer
 } from 'lucide-react';
 
 interface DashboardProps {
@@ -19,6 +20,122 @@ interface DashboardProps {
 }
 
 const Dashboard: React.FC<DashboardProps> = ({ analysis, onReset }) => {
+  const handlePrintReport = () => {
+    const printContent = `
+      <html>
+        <head>
+          <title>ATS Resume Analysis Report</title>
+          <style>
+            body { font-family: Arial, sans-serif; margin: 20px; color: #333; }
+            .header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid #4f46e5; padding-bottom: 20px; }
+            .score-section { margin: 20px 0; padding: 15px; background: #f8fafc; border-radius: 8px; }
+            .breakdown-item { display: flex; justify-content: space-between; margin: 8px 0; }
+            .company-match { margin: 10px 0; padding: 10px; border-left: 4px solid #4f46e5; }
+            .section { margin: 25px 0; }
+            .section h3 { color: #4f46e5; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; }
+            .list-item { margin: 5px 0; padding-left: 15px; }
+            .suggestion-box { background: #f1f5f9; padding: 15px; border-radius: 8px; margin: 10px 0; }
+            @media print { body { margin: 0; } }
+          </style>
+        </head>
+        <body>
+          <div class="header">
+            <h1>Enterprise ATS Resume Analysis Report</h1>
+            <p>Generated on ${new Date().toLocaleDateString()}</p>
+          </div>
+          
+          <div class="score-section">
+            <h2>Overall ATS Score: ${analysis.atsScore}%</h2>
+            <p><strong>Readiness Level:</strong> ${analysis.readinessLevel}</p>
+            <p><strong>Shortlist Probability:</strong> ${analysis.shortlistProbability}</p>
+          </div>
+
+          <div class="section">
+            <h3>Score Breakdown</h3>
+            ${Object.entries(analysis.breakdown).map(([key, val]) => 
+              `<div class="breakdown-item">
+                <span>${key.replace(/([A-Z])/g, ' $1')}</span>
+                <span>${val}%</span>
+              </div>`
+            ).join('')}
+          </div>
+
+          <div class="section">
+            <h3>Company Matches</h3>
+            ${analysis.companyMatches.map(company => 
+              `<div class="company-match">
+                <strong>${company.name}</strong> - ${company.matchPercentage}% (${company.status})
+                <br><small>${company.reason}</small>
+              </div>`
+            ).join('')}
+          </div>
+
+          <div class="section">
+            <h3>Strengths</h3>
+            ${analysis.strengths.map(strength => `<div class="list-item">• ${strength}</div>`).join('')}
+          </div>
+
+          <div class="section">
+            <h3>Areas for Improvement</h3>
+            ${analysis.weaknesses.map(weakness => `<div class="list-item">• ${weakness}</div>`).join('')}
+          </div>
+
+          <div class="section">
+            <h3>Summary Optimization</h3>
+            <div class="suggestion-box">
+              <h4>Current Summary:</h4>
+              <p>${analysis.summarySuggestion.current}</p>
+              <h4>Optimized Summary:</h4>
+              <p>${analysis.summarySuggestion.optimized}</p>
+            </div>
+          </div>
+
+          <div class="section">
+            <h3>Skill Optimization</h3>
+            ${analysis.skillOptimization.map(category => 
+              `<div class="suggestion-box">
+                <h4>${category.category}</h4>
+                <p>${category.skills.join(', ')}</p>
+              </div>`
+            ).join('')}
+          </div>
+
+          <div class="section">
+            <h3>Experience Upgrades</h3>
+            ${analysis.experienceUpgrades.map(upgrade => 
+              `<div class="suggestion-box">
+                <h4>Original:</h4>
+                <p>${upgrade.original}</p>
+                <h4>Upgraded:</h4>
+                <p>${upgrade.upgraded}</p>
+                <small><em>${upgrade.impactDescription}</em></small>
+              </div>`
+            ).join('')}
+          </div>
+
+          <div class="section">
+            <h3>Future Skills to Develop</h3>
+            ${analysis.futureSkills.map(skill => `<div class="list-item">• ${skill}</div>`).join('')}
+          </div>
+
+          <div class="section">
+            <h3>Rejection Risks</h3>
+            ${analysis.rejectionRisks.map(risk => `<div class="list-item">• ${risk}</div>`).join('')}
+          </div>
+        </body>
+      </html>
+    `;
+
+    const printWindow = window.open('', '_blank');
+    if (printWindow) {
+      printWindow.document.write(printContent);
+      printWindow.document.close();
+      printWindow.focus();
+      printWindow.print();
+      printWindow.close();
+    }
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 animate-in fade-in duration-700">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
@@ -26,12 +143,20 @@ const Dashboard: React.FC<DashboardProps> = ({ analysis, onReset }) => {
           <h1 className="text-3xl font-bold text-slate-900 tracking-tight">Enterprise ATS Evaluation</h1>
           <p className="text-slate-500 mt-1">Simulated Hiring Engine Insights</p>
         </div>
-        <button 
-          onClick={onReset}
-          className="px-6 py-2.5 bg-slate-900 text-white rounded-xl font-medium hover:bg-slate-800 transition-all flex items-center gap-2"
-        >
-          <Zap size={18} /> Analyze New Resume
-        </button>
+        <div className="flex gap-3">
+          <button 
+            onClick={handlePrintReport}
+            className="px-6 py-2.5 bg-indigo-600 text-white rounded-xl font-medium hover:bg-indigo-700 transition-all flex items-center gap-2"
+          >
+            <Printer size={18} /> Print Report
+          </button>
+          <button 
+            onClick={onReset}
+            className="px-6 py-2.5 bg-slate-900 text-white rounded-xl font-medium hover:bg-slate-800 transition-all flex items-center gap-2"
+          >
+            <Zap size={18} /> Analyze New Resume
+          </button>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
