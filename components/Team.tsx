@@ -57,9 +57,9 @@ const Team: React.FC = () => {
               name: 'Gurudatt Choudhary',
               link: 'https://www.linkedin.com/in/gurudatt-choudhary',
               points: [
-                'Cybersecurity researcher, web security specialist',
-                'Ethical hacker & Nation Top Security Researcher',
-                'CTF creator and & Player '
+                'Nation Top Cyber Security researcher', 
+                'web security specialist',
+                'CTF creator & Player '
               ]
             }
           ].map((member, i) => (
