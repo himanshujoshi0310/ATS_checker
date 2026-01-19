@@ -114,8 +114,8 @@ const App: React.FC = () => {
     return (
       <div className="min-h-screen bg-slate-900 flex flex-col items-center justify-center text-white p-4">
         <Cpu className="animate-spin text-indigo-400 mb-4" size={48} />
-        <h2 className="text-xl font-bold tracking-tight">Enterprise ATS Initializing...</h2>
-        <p className="text-slate-400 text-sm mt-2">Checking backend connection status</p>
+        <h2 className="text-xl font-bold tracking-tight">Loading Application....</h2>
+        <p className="text-slate-400 text-sm mt-2">Please wait</p>
       </div>
     );
   }
@@ -138,7 +138,7 @@ const App: React.FC = () => {
 </div>
 
             <div className="flex flex-col">
-              <span className="font-bold text-slate-900 leading-none">Enterprise ATS</span>
+              <span className="font-bold text-slate-900 leading-none">OptimusCV</span>
               <span className="text-[10px] text-indigo-600 font-bold tracking-tighter uppercase"></span>
             </div>
           </div>
@@ -158,7 +158,7 @@ const App: React.FC = () => {
           <div className="space-y-8 animate-in fade-in duration-500">
             <div className="text-center space-y-3 mb-10">
               <h1 className="text-4xl font-extrabold text-slate-900">ATS Resume Optimizer</h1>
-              <p className="text-lg text-slate-500">Professional-grade scoring engine with PDF/Word support.</p>
+              <p className="text-lg text-slate-500">Enterprise grade scoring engine with PDF/Word support.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
