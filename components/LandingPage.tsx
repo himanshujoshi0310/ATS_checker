@@ -189,9 +189,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
             <div className={`p-8 rounded-2xl border hover:shadow-lg transition-all ${
               isDark ? 'bg-slate-700 border-slate-600' : 'bg-white border-slate-100'
             }`}>
-              <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-6">
-                <Award className="text-emerald-600" size={24} />
-              </div>
+              
               <h3 className={`text-xl font-bold mb-4 transition-colors ${isDark ? 'text-white' : 'text-slate-900'}`}>Enterprise Grade</h3>
               <p className={`transition-colors ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Simulates screening processes from Google, Amazon, Microsoft, and other Fortune 500 companies.</p>
             </div>
