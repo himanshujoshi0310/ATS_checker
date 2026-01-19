@@ -273,11 +273,11 @@ const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
                   </div>
                 </div>
                 </div>
-                <div className="flex items-center gap-4">
+                {/* <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center">
                     <MapPin className="text-rose-600" size={20} />
                   </div>
-                  <div>
+                  <div> */}
                     <p className={`font-bold transition-colors ${isDark ? 'text-white' : 'text-slate-900'}`}>Address</p>
                     <p className={`transition-colors ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Mandsaur, Madhya Pradesh, India</p>
                   </div>
