@@ -5,13 +5,14 @@ import { analyzeResume } from './services/geminiService';
 import { ResumeAnalysis, ExperienceLevel } from './types';
 import { PREDEFINED_ROLES } from './constants';
 import Dashboard from './components/Dashboard';
+import LandingPage from './components/LandingPage';
 import { Upload, Cpu, Search, Briefcase, User, Loader2, Sparkles, ShieldCheck, FileText, AlertCircle, Trash2, Globe } from 'lucide-react';
 
 declare const mammoth: any;
 declare const pdfjsLib: any;
 
 const App: React.FC = () => {
-  const [step, setStep] = useState<'upload' | 'analyzing' | 'result'>('upload');
+  const [currentView, setCurrentView] = useState<'landing' | 'upload' | 'analyzing' | 'result'>('landing');
   const [resumeText, setResumeText] = useState('');
   const [targetRole, setTargetRole] = useState(PREDEFINED_ROLES[0].title);
   const [customRole, setCustomRole] = useState('');
@@ -19,13 +20,15 @@ const App: React.FC = () => {
   const [analysis, setAnalysis] = useState<ResumeAnalysis | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isParsing, setIsParsing] = useState(false);
-  const [isBackendChecking, setIsBackendChecking] = useState(true);
+  const [isBackendChecking, setIsBackendChecking] = useState(false);
 
   useEffect(() => {
-    // Small delay to simulate system health check on load
-    const timer = setTimeout(() => setIsBackendChecking(false), 800);
-    return () => clearTimeout(timer);
-  }, []);
+    // Only show backend checking when navigating to upload
+    if (currentView === 'upload' && isBackendChecking) {
+      const timer = setTimeout(() => setIsBackendChecking(false), 800);
+      return () => clearTimeout(timer);
+    }
+  }, [currentView, isBackendChecking]);
 
   const extractTextFromPdf = async (file: File): Promise<string> => {
     try {
@@ -96,19 +99,35 @@ const App: React.FC = () => {
     }
     
     setError(null);
-    setStep('analyzing');
+    setCurrentView('analyzing');
     
     try {
       const finalRole = customRole.trim() || targetRole;
       const result = await analyzeResume(resumeText, finalRole, expLevel);
       setAnalysis(result);
-      setStep('result');
+      setCurrentView('result');
     } catch (err: any) {
       console.error("Deployment Error Details:", err);
       setError(err.message || "A network or engine error occurred during analysis.");
-      setStep('upload');
+      setCurrentView('upload');
     }
   };
+
+  const handleGetStarted = () => {
+    setIsBackendChecking(true);
+    setCurrentView('upload');
+  };
+
+  const handleReset = () => {
+    setCurrentView('landing');
+    setAnalysis(null);
+    setResumeText('');
+    setError(null);
+  };
+
+  if (currentView === 'landing') {
+    return <LandingPage onGetStarted={handleGetStarted} />;
+  }
 
   if (isBackendChecking) {
     return (
@@ -120,8 +139,8 @@ const App: React.FC = () => {
     );
   }
 
-  if (step === 'result' && analysis) {
-    return <Dashboard analysis={analysis} onReset={() => { setStep('upload'); setAnalysis(null); }} />;
+  if (currentView === 'result' && analysis) {
+    return <Dashboard analysis={analysis} onReset={handleReset} />;
   }
 
   return (
@@ -143,6 +162,12 @@ const App: React.FC = () => {
             </div>
           </div>
           <div className="flex items-center gap-4">
+            <button 
+              onClick={() => setCurrentView('landing')}
+              className="text-slate-600 hover:text-indigo-600 font-medium"
+            >
+              ← Back to Home
+            </button>
             <a href="/team"  className="rounded-xl text-[10px] font-bold transition-all border bg-indigo-600 border-indigo-600 text-white shadow-lg px-3 py-1.5">
             Meet Our Team
             </a>
@@ -154,7 +179,7 @@ const App: React.FC = () => {
       </nav>
 
       <main className="flex-1 max-w-4xl mx-auto w-full px-4 py-12">
-        {step === 'upload' ? (
+        {currentView === 'upload' ? (
           <div className="space-y-8 animate-in fade-in duration-500">
             <div className="text-center space-y-3 mb-10">
               <h1 className="text-4xl font-extrabold text-slate-900">ATS Resume Optimizer</h1>
