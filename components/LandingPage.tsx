@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Star, CheckCircle, ArrowRight, Users, Award, Zap, Mail, Phone, MapPin, Github, Linkedin, Twitter, Sun, Moon, Menu, X } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Star, CheckCircle, ArrowRight, Users, Award, Zap, Mail, Phone, MapPin, Github, Linkedin, Twitter, Sun, Moon, Menu, X, Play, Pause } from 'lucide-react';
 
 interface LandingPageProps {
   onGetStarted: () => void;
@@ -9,6 +9,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
   const [isDark, setIsDark] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     const saved = localStorage.getItem('theme');
@@ -25,6 +27,17 @@ const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
       document.documentElement.classList.remove('dark');
     }
   }, [isDark]);
+
+  const toggleMusic = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
 
   return (
     <div className={`min-h-screen transition-colors duration-300 ${isDark ? 'dark bg-slate-900' : 'bg-slate-50'}`}>
@@ -393,6 +406,25 @@ const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
           </div>
         </div>
       </footer>
+
+      {/* Music Player */}
+      <div className="fixed bottom-4 right-4 z-50">
+        <button
+          onClick={toggleMusic}
+          className={`p-3 rounded-full shadow-lg transition-all hover:scale-105 ${
+            isDark ? 'bg-slate-800 text-white border border-slate-600' : 'bg-white text-slate-700 border border-slate-200'
+          }`}
+        >
+          {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+        </button>
+        <audio
+          ref={audioRef}
+          src="/music.mp3"
+          loop
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
+        />
+      </div>
 
       {/* Video Modal */}
       {showVideo && (
