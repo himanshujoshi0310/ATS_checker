@@ -272,7 +272,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
                     <p className={`transition-colors ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>optimuscv@proton.me</p>
                   </div>
                 </div>
-            
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center">
