@@ -254,91 +254,134 @@ const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
       </section>
 
       {/* Contact Form */}
-      <section id="contact" className={`py-20 transition-colors ${isDark ? 'bg-slate-800' : 'bg-white'}`}>
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div>
-              <h2 className={`text-4xl font-bold mb-6 transition-colors ${isDark ? 'text-white' : 'text-slate-900'}`}>Get in Touch</h2>
-              <p className={`text-lg mb-8 transition-colors ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Have questions? We're here to help you succeed.</p>
-             <div className="space-y-6">
-            {/* Email */}
-            <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center">
+<section
+  id="contact"
+  className={`py-20 transition-colors ${isDark ? 'bg-slate-800' : 'bg-white'}`}
+>
+  <div className="max-w-7xl mx-auto px-4">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+
+      {/* Left Column - Contact Info */}
+      <div className="space-y-6">
+        <h2
+          className={`text-4xl font-bold mb-6 transition-colors ${
+            isDark ? 'text-white' : 'text-slate-900'
+          }`}
+        >
+          Get in Touch
+        </h2>
+        <p
+          className={`text-lg mb-8 transition-colors ${
+            isDark ? 'text-slate-300' : 'text-slate-600'
+          }`}
+        >
+          Have questions? We're here to help you succeed.
+        </p>
+
+        {/* Email */}
+        <div className="flex items-center gap-4">
+          <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center">
             <Mail className="text-indigo-600" size={20} />
-            </div>
-            <div>
-            <p className={`font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Email</p>
-            <p className={`${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-            optimuscv@proton.me
+          </div>
+          <div>
+            <p
+              className={`font-bold transition-colors ${
+                isDark ? 'text-white' : 'text-slate-900'
+              }`}
+            >
+              Email
             </p>
-    </div>
-  </div>
-
-  {/* Address */}
-  <div className="flex items-center gap-4">
-    <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center">
-      <MapPin className="text-emerald-600" size={20} />
-    </div>
-    <div>
-      <p className={`font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Address</p>
-      <p className={`${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-        Mandsaur, Madhya Pradesh, India
-      </p>
-    </div>
-  </div>
-</div>
-
-            <div className={`p-8 rounded-2xl transition-colors ${isDark ? 'bg-slate-700' : 'bg-slate-50'}`}>
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <input
-                    type="text"
-                    placeholder="First Name"
-                    className={`px-4 py-3 rounded-xl border focus:ring-2 focus:ring-indigo-500 transition-all outline-none ${
-                      isDark 
-                        ? 'border-slate-600 bg-slate-800 text-white placeholder-slate-400' 
-                        : 'border-slate-200 bg-white'
-                    }`}
-                  />
-                  <input
-                    type="text"
-                    placeholder="Last Name"
-                    className={`px-4 py-3 rounded-xl border focus:ring-2 focus:ring-indigo-500 transition-all outline-none ${
-                      isDark 
-                        ? 'border-slate-600 bg-slate-800 text-white placeholder-slate-400' 
-                        : 'border-slate-200 bg-white'
-                    }`}
-                  />
-                </div>
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  className={`w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-indigo-500 transition-all outline-none ${
-                    isDark 
-                      ? 'border-slate-600 bg-slate-800 text-white placeholder-slate-400' 
-                      : 'border-slate-200 bg-white'
-                  }`}
-                />
-                <textarea
-                  placeholder="Your Message"
-                  rows={4}
-                  className={`w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-indigo-500 transition-all outline-none resize-none ${
-                    isDark 
-                      ? 'border-slate-600 bg-slate-800 text-white placeholder-slate-400' 
-                      : 'border-slate-200 bg-white'
-                  }`}
-                />
-                <button
-                  type="submit"
-                  className="w-full py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
-                >
-                  Send Message
-                </button>
-              </form>
-            </div>
+            <p
+              className={`transition-colors ${
+                isDark ? 'text-slate-300' : 'text-slate-600'
+              }`}
+            >
+              optimuscv@proton.me
+            </p>
           </div>
         </div>
-      </section>
+
+        {/* Address */}
+        <div className="flex items-center gap-4">
+          <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center">
+            <MapPin className="text-emerald-600" size={20} />
+          </div>
+          <div>
+            <p
+              className={`font-bold transition-colors ${
+                isDark ? 'text-white' : 'text-slate-900'
+              }`}
+            >
+              Address
+            </p>
+            <p
+              className={`transition-colors ${
+                isDark ? 'text-slate-300' : 'text-slate-600'
+              }`}
+            >
+              Mandsaur, Madhya Pradesh, India
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Right Column - Contact Form */}
+      <div
+        className={`p-8 rounded-2xl transition-colors ${
+          isDark ? 'bg-slate-700' : 'bg-slate-50'
+        }`}
+      >
+        <form className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <input
+              type="text"
+              placeholder="First Name"
+              className={`px-4 py-3 rounded-xl border focus:ring-2 focus:ring-indigo-500 transition-all outline-none ${
+                isDark
+                  ? 'border-slate-600 bg-slate-800 text-white placeholder-slate-400'
+                  : 'border-slate-200 bg-white'
+              }`}
+            />
+            <input
+              type="text"
+              placeholder="Last Name"
+              className={`px-4 py-3 rounded-xl border focus:ring-2 focus:ring-indigo-500 transition-all outline-none ${
+                isDark
+                  ? 'border-slate-600 bg-slate-800 text-white placeholder-slate-400'
+                  : 'border-slate-200 bg-white'
+              }`}
+            />
+          </div>
+          <input
+            type="email"
+            placeholder="Email Address"
+            className={`w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-indigo-500 transition-all outline-none ${
+              isDark
+                ? 'border-slate-600 bg-slate-800 text-white placeholder-slate-400'
+                : 'border-slate-200 bg-white'
+            }`}
+          />
+          <textarea
+            placeholder="Your Message"
+            rows={4}
+            className={`w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-indigo-500 transition-all outline-none resize-none ${
+              isDark
+                ? 'border-slate-600 bg-slate-800 text-white placeholder-slate-400'
+                : 'border-slate-200 bg-white'
+            }`}
+          />
+          <button
+            type="submit"
+            className="w-full py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Footer */}
       <footer className="bg-slate-900 text-white py-16">
