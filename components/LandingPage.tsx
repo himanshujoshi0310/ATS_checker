@@ -50,9 +50,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
               <a href="#testimonials" className={`font-medium transition-colors ${
                 isDark ? 'text-slate-300 hover:text-indigo-400' : 'text-slate-600 hover:text-indigo-600'
               }`}>Reviews</a>
-              <a href="#contact" className={`font-medium transition-colors ${
+              <a href="/team" className={`font-medium transition-colors ${
                 isDark ? 'text-slate-300 hover:text-indigo-400' : 'text-slate-600 hover:text-indigo-600'
-              }`}>Contact</a>
+              }`}>Our Team</a>
             </div>
             <button
               onClick={() => setIsDark(!isDark)}
@@ -91,9 +91,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
               <a href="#testimonials" className={`block font-medium transition-colors ${
                 isDark ? 'text-slate-300 hover:text-indigo-400' : 'text-slate-600 hover:text-indigo-600'
               }`} onClick={() => setMobileMenuOpen(false)}>Reviews</a>
-              <a href="#contact" className={`block font-medium transition-colors ${
+              <a href="/team" className={`block font-medium transition-colors ${
                 isDark ? 'text-slate-300 hover:text-indigo-400' : 'text-slate-600 hover:text-indigo-600'
-              }`} onClick={() => setMobileMenuOpen(false)}>Contact</a>
+              }`} onClick={() => setMobileMenuOpen(false)}>Our Team</a>
               <button 
                 onClick={() => { onGetStarted(); setMobileMenuOpen(false); }}
                 className="w-full px-6 py-2 bg-indigo-600 text-white rounded-xl font-medium hover:bg-indigo-700 transition-all"
@@ -256,7 +256,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
                   </div>
                   <div>
                     <p className={`font-bold transition-colors ${isDark ? 'text-white' : 'text-slate-900'}`}>Email</p>
-                    <p className={`transition-colors ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>support@optimuscv.com</p>
+                    <p className={`transition-colors ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>optimuscv@proton.me</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -264,8 +264,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
                     <Phone className="text-emerald-600" size={20} />
                   </div>
                   <div>
-                    <p className={`font-bold transition-colors ${isDark ? 'text-white' : 'text-slate-900'}`}>Phone</p>
-                    <p className={`transition-colors ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>+1 (555) 123-4567</p>
+                    {/* <p className={`font-bold transition-colors ${isDark ? 'text-white' : 'text-slate-900'}`}>Phone</p>
+                    <p className={`transition-colors ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>+1 (555) 123-4567</p> */}
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -274,7 +274,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
                   </div>
                   <div>
                     <p className={`font-bold transition-colors ${isDark ? 'text-white' : 'text-slate-900'}`}>Address</p>
-                    <p className={`transition-colors ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>San Francisco, CA</p>
+                    <p className={`transition-colors ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Mandsaur, Madhya Pradesh, India</p>
                   </div>
                 </div>
               </div>
@@ -361,17 +361,17 @@ const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
             <div>
               <h4 className="font-bold text-white mb-4">Company</h4>
               <ul className="space-y-2 text-sm text-slate-400">
-                <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
+                <li><a href="/team" className="hover:text-white transition-colors">About Us</a></li>
                 <li><a href="/team" className="hover:text-white transition-colors">Team</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
+                <li><a href="/team" className="hover:text-white transition-colors">Careers</a></li>
+                <li><a href="https://optimuscv.github.io" className="hover:text-white transition-colors">Blog</a></li>
               </ul>
             </div>
             <div>
               <h4 className="font-bold text-white mb-4">Support</h4>
               <ul className="space-y-2 text-sm text-slate-400">
                 <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
-                <li><a href="#contact" className="hover:text-white transition-colors">Contact Us</a></li>
+                <li><a href="/team" className="hover:text-white transition-colors">Contact Us</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
               </ul>
@@ -380,13 +380,13 @@ const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
           <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-slate-400 text-sm">© 2026 3Dumb Developers. All rights reserved.</p>
             <div className="flex items-center gap-4 mt-4 md:mt-0">
-              <a href="#" className="w-10 h-10 bg-slate-800 rounded-xl flex items-center justify-center hover:bg-slate-700 transition-colors">
+              <a href="https://github.com/optimuscv" className="w-10 h-10 bg-slate-800 rounded-xl flex items-center justify-center hover:bg-slate-700 transition-colors">
                 <Github size={18} />
               </a>
-              <a href="#" className="w-10 h-10 bg-slate-800 rounded-xl flex items-center justify-center hover:bg-slate-700 transition-colors">
+              <a href="https://in.linkedin.com/company/optimuscv" className="w-10 h-10 bg-slate-800 rounded-xl flex items-center justify-center hover:bg-slate-700 transition-colors">
                 <Linkedin size={18} />
               </a>
-              <a href="#" className="w-10 h-10 bg-slate-800 rounded-xl flex items-center justify-center hover:bg-slate-700 transition-colors">
+              <a href="https://x.com/optimuscv" className="w-10 h-10 bg-slate-800 rounded-xl flex items-center justify-center hover:bg-slate-700 transition-colors">
                 <Twitter size={18} />
               </a>
             </div>
