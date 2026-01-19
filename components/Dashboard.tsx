@@ -35,7 +35,6 @@ const Dashboard: React.FC<DashboardProps> = ({ analysis, onReset }) => {
             .section h3 { color: #4f46e5; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; }
             .list-item { margin: 5px 0; padding-left: 15px; }
             .suggestion-box { background: #f1f5f9; padding: 15px; border-radius: 8px; margin: 10px 0; }
-            @media print { body { margin: 0; } }
           </style>
         </head>
         <body>
@@ -126,14 +125,15 @@ const Dashboard: React.FC<DashboardProps> = ({ analysis, onReset }) => {
       </html>
     `;
 
-    const printWindow = window.open('', '_blank');
-    if (printWindow) {
-      printWindow.document.write(printContent);
-      printWindow.document.close();
-      printWindow.focus();
-      printWindow.print();
-      printWindow.close();
-    }
+    const blob = new Blob([printContent], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `ATS-Report-${new Date().toISOString().split('T')[0]}.html`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
   };
 
   return (
