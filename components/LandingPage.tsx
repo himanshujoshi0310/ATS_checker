@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Star, CheckCircle, ArrowRight, Users, Award, Zap, Mail, Phone, MapPin, Github, Linkedin, Twitter, Sun, Moon } from 'lucide-react';
+import { Star, CheckCircle, ArrowRight, Users, Award, Zap, Mail, Phone, MapPin, Github, Linkedin, Twitter, Sun, Moon, Menu, X } from 'lucide-react';
 
 interface LandingPageProps {
   onGetStarted: () => void;
@@ -8,6 +8,7 @@ interface LandingPageProps {
 const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
   const [isDark, setIsDark] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const saved = localStorage.getItem('theme');
@@ -41,16 +42,18 @@ const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
               <span className="text-[10px] text-indigo-600 font-bold tracking-tighter uppercase">ATS OPTIMIZER</span>
             </div>
           </div>
-          <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className={`font-medium transition-colors ${
-              isDark ? 'text-slate-300 hover:text-indigo-400' : 'text-slate-600 hover:text-indigo-600'
-            }`}>Features</a>
-            <a href="#testimonials" className={`font-medium transition-colors ${
-              isDark ? 'text-slate-300 hover:text-indigo-400' : 'text-slate-600 hover:text-indigo-600'
-            }`}>Reviews</a>
-            <a href="#contact" className={`font-medium transition-colors ${
-              isDark ? 'text-slate-300 hover:text-indigo-400' : 'text-slate-600 hover:text-indigo-600'
-            }`}>Contact</a>
+          <div className="flex items-center gap-4">
+            <div className="hidden md:flex items-center gap-8">
+              <a href="#features" className={`font-medium transition-colors ${
+                isDark ? 'text-slate-300 hover:text-indigo-400' : 'text-slate-600 hover:text-indigo-600'
+              }`}>Features</a>
+              <a href="#testimonials" className={`font-medium transition-colors ${
+                isDark ? 'text-slate-300 hover:text-indigo-400' : 'text-slate-600 hover:text-indigo-600'
+              }`}>Reviews</a>
+              <a href="#contact" className={`font-medium transition-colors ${
+                isDark ? 'text-slate-300 hover:text-indigo-400' : 'text-slate-600 hover:text-indigo-600'
+              }`}>Contact</a>
+            </div>
             <button
               onClick={() => setIsDark(!isDark)}
               className={`p-2 rounded-xl transition-all ${
@@ -61,12 +64,45 @@ const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
             </button>
             <button 
               onClick={onGetStarted}
-              className="px-6 py-2 bg-indigo-600 text-white rounded-xl font-medium hover:bg-indigo-700 transition-all"
+              className="hidden md:block px-6 py-2 bg-indigo-600 text-white rounded-xl font-medium hover:bg-indigo-700 transition-all"
             >
               Get Started
             </button>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className={`md:hidden p-2 rounded-xl transition-all ${
+                isDark ? 'bg-slate-700 hover:bg-slate-600 text-white' : 'bg-slate-100 hover:bg-slate-200 text-slate-600'
+              }`}
+            >
+              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
           </div>
         </div>
+        
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className={`md:hidden border-t transition-colors ${
+            isDark ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'
+          }`}>
+            <div className="px-4 py-4 space-y-4">
+              <a href="#features" className={`block font-medium transition-colors ${
+                isDark ? 'text-slate-300 hover:text-indigo-400' : 'text-slate-600 hover:text-indigo-600'
+              }`} onClick={() => setMobileMenuOpen(false)}>Features</a>
+              <a href="#testimonials" className={`block font-medium transition-colors ${
+                isDark ? 'text-slate-300 hover:text-indigo-400' : 'text-slate-600 hover:text-indigo-600'
+              }`} onClick={() => setMobileMenuOpen(false)}>Reviews</a>
+              <a href="#contact" className={`block font-medium transition-colors ${
+                isDark ? 'text-slate-300 hover:text-indigo-400' : 'text-slate-600 hover:text-indigo-600'
+              }`} onClick={() => setMobileMenuOpen(false)}>Contact</a>
+              <button 
+                onClick={() => { onGetStarted(); setMobileMenuOpen(false); }}
+                className="w-full px-6 py-2 bg-indigo-600 text-white rounded-xl font-medium hover:bg-indigo-700 transition-all"
+              >
+                Get Started
+              </button>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Banner */}
