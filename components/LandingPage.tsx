@@ -437,7 +437,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
               ✕ Close
             </button>
             <iframe
-              src="https://www.youtube.com/embed/m_8D5kUbUFYautoplay=1"
+              src="https://www.youtube.com/embed/m_8D5kUbUFY?si=rzUKtnO1Q_LyQA_W"
               className="w-full h-full rounded-lg"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
