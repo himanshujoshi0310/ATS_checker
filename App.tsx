@@ -129,12 +129,17 @@ const App: React.FC = () => {
       <nav className="border-b bg-white/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white">
-              <Cpu size={24} />
-            </div>
+           <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center">
+  <img
+    src="/logo.png"
+    alt="Enterprise ATS Logo"
+    className="w-8 h-8 object-contain"
+  />
+</div>
+
             <div className="flex flex-col">
               <span className="font-bold text-slate-900 leading-none">Enterprise ATS</span>
-              <span className="text-[10px] text-indigo-600 font-bold tracking-tighter uppercase">Vercel Ready v3.4</span>
+              <span className="text-[10px] text-indigo-600 font-bold tracking-tighter uppercase"></span>
             </div>
           </div>
           <div className="flex items-center gap-4">
