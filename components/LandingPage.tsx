@@ -260,27 +260,33 @@ const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
             <div>
               <h2 className={`text-4xl font-bold mb-6 transition-colors ${isDark ? 'text-white' : 'text-slate-900'}`}>Get in Touch</h2>
               <p className={`text-lg mb-8 transition-colors ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Have questions? We're here to help you succeed.</p>
-              <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center">
-                  <Mail className="text-indigo-600" size={20} />
-                </div>
-                <div>
-                  <p className={`font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Email</p>
-                  <p className={`${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                    optimuscv@proton.me
-                  </p>
-                </div>
-              </div>
-
-              <div>
-                <p className={`font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Address</p>
-                <p className={`${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                  Mandsaur, Madhya Pradesh, India
-                </p>
-              </div>
+             <div className="space-y-6">
+            {/* Email */}
+            <div className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center">
+            <Mail className="text-indigo-600" size={20} />
             </div>
-          </div>
+            <div>
+            <p className={`font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Email</p>
+            <p className={`${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+            optimuscv@proton.me
+            </p>
+    </div>
+  </div>
+
+  {/* Address */}
+  <div className="flex items-center gap-4">
+    <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center">
+      <MapPin className="text-emerald-600" size={20} />
+    </div>
+    <div>
+      <p className={`font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Address</p>
+      <p className={`${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+        Mandsaur, Madhya Pradesh, India
+      </p>
+    </div>
+  </div>
+</div>
 
             <div className={`p-8 rounded-2xl transition-colors ${isDark ? 'bg-slate-700' : 'bg-slate-50'}`}>
               <form className="space-y-6">
