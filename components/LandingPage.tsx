@@ -1,21 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
-  Star,
-  CheckCircle,
-  ArrowRight,
-  Users,
-  Zap,
-  Mail,
-  MapPin,
-  Github,
-  Linkedin,
-  Twitter,
-  Sun,
-  Moon,
-  Menu,
-  X,
-  Play,
-  Pause
+  Star, CheckCircle, ArrowRight, Users, Award, Zap,
+  Mail, Phone, MapPin, Github, Linkedin, Twitter,
+  Sun, Moon, Menu, X, Play, Pause
 } from 'lucide-react';
 
 interface LandingPageProps {
@@ -24,147 +11,118 @@ interface LandingPageProps {
 
 const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
   const [isDark, setIsDark] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [showVideo, setShowVideo] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
+    const saved = localStorage.getItem('theme');
+    if (
+      saved === 'dark' ||
+      (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      setIsDark(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
     document.documentElement.classList.toggle('dark', isDark);
   }, [isDark]);
 
   const toggleMusic = () => {
     if (!audioRef.current) return;
-    isPlaying ? audioRef.current.pause() : audioRef.current.play();
+    if (isPlaying) audioRef.current.pause();
+    else audioRef.current.play();
     setIsPlaying(!isPlaying);
   };
 
   return (
-    <div className={`${isDark ? 'dark bg-slate-900' : 'bg-slate-50'} min-h-screen`}>
+    <div className={`min-h-screen transition-colors duration-300 ${isDark ? 'dark bg-slate-900' : 'bg-slate-50'}`}>
 
-      {/* NAVBAR */}
-      <nav className="border-b sticky top-0 z-50 bg-white dark:bg-slate-800">
-        <div className="max-w-7xl mx-auto px-4 h-16 flex justify-between items-center">
+      {/* Navbar */}
+      <nav className={`border-b backdrop-blur-md sticky top-0 z-50 transition-colors duration-300 ${
+        isDark ? 'bg-slate-800/80 border-slate-700' : 'bg-white/80 border-slate-200'
+      }`}>
+        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
 
           <div className="flex items-center gap-2">
             <img src="/logo.png" className="w-8 h-8" />
-            <span className={`font-bold ${isDark ? 'text-white' : 'text-black'}`}>
+            <span className={`font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>
               OptimusCV
             </span>
           </div>
 
           <div className="flex items-center gap-4">
-            <button onClick={() => setIsDark(!isDark)}>
-              {isDark ? <Sun /> : <Moon />}
+
+            <button
+              onClick={() => setIsDark(!isDark)}
+              className={`p-2 rounded-xl ${
+                isDark ? 'bg-slate-700 text-yellow-400' : 'bg-slate-100 text-slate-600'
+              }`}
+            >
+              {isDark ? <Sun size={18} /> : <Moon size={18} />}
             </button>
 
             <button
               onClick={onGetStarted}
-              className="bg-indigo-600 text-white px-4 py-2 rounded"
+              className="px-6 py-2 bg-indigo-600 text-white rounded-xl"
             >
               Get Started
             </button>
 
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden"
-            >
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               {mobileMenuOpen ? <X /> : <Menu />}
             </button>
+
           </div>
         </div>
       </nav>
 
-      {/* HERO */}
+      {/* Hero */}
       <section className="text-center py-20">
-        <h1 className="text-5xl font-bold mb-6">
-          Improve Your <span className="text-indigo-600">ATS Score</span>
+        <h1 className={`text-5xl font-bold ${isDark ? 'text-white' : 'text-black'}`}>
+          Beat the <span className="text-indigo-600">ATS System</span>
         </h1>
 
-        <p className="text-lg mb-6 max-w-2xl mx-auto">
-          A rule-based resume analyzer that evaluates formatting, keywords, and structure.
+        <p className="mt-4 text-lg">
+          Enterprise-grade resume optimization powered by AI
         </p>
 
         <button
           onClick={onGetStarted}
-          className="bg-indigo-600 text-white px-6 py-3 rounded-lg"
+          className="mt-6 px-6 py-3 bg-indigo-600 text-white rounded-xl"
         >
-          Analyze Resume
+          Analyze Resume <ArrowRight size={18} />
         </button>
       </section>
 
-      {/* FEATURES */}
-      <section className="py-20 bg-white">
-        <h2 className="text-3xl text-center font-bold mb-12">Features</h2>
+      {/* Music Button */}
+      <div className="fixed bottom-4 right-4">
+        <button
+          onClick={toggleMusic}
+          className="p-3 bg-white rounded-full shadow"
+        >
+          {isPlaying ? <Pause /> : <Play />}
+        </button>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <audio
+          ref={audioRef}
+          src="/music.mp3"
+          loop
+        />
+      </div>
 
-          <div className="p-6 border rounded-lg">
-            <Zap className="text-indigo-600 mb-3" />
-            <h3 className="font-bold mb-2">Keyword-Based Analysis</h3>
-            <p>
-              Checks resume content using predefined keyword matching and scoring techniques.
-            </p>
-          </div>
-
-          <div className="p-6 border rounded-lg">
-            <Users className="text-indigo-600 mb-3" />
-            <h3 className="font-bold mb-2">ATS Rule Simulation</h3>
-            <p>
-              Applies common ATS rules like formatting validation and section detection.
-            </p>
-          </div>
-
-          <div className="p-6 border rounded-lg">
-            <h3 className="font-bold mb-2">Resume Suggestions</h3>
-            <p>
-              Provides improvement suggestions based on missing sections and keyword gaps.
-            </p>
-          </div>
-
+      {/* Video */}
+      {showVideo && (
+        <div className="fixed inset-0 bg-black flex items-center justify-center">
+          <iframe
+            src="https://www.youtube.com/embed/m_8D5kUbUFY"
+            className="w-[80%] h-[60%]"
+          />
         </div>
-      </section>
-
-      {/* TESTIMONIALS */}
-      <section className="py-20 bg-slate-50">
-        <h2 className="text-3xl text-center font-bold mb-12">User Feedback</h2>
-
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="p-6 border rounded-lg bg-white">
-              <p className="italic mb-4">
-                "This tool helped me improve my resume formatting."
-              </p>
-              <p className="font-bold">Student User</p>
-              <p className="text-sm text-gray-500">Final Year Student</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* CONTACT */}
-      <section className="py-20 bg-white text-center">
-        <h2 className="text-3xl font-bold mb-6">Contact</h2>
-        <p>Email: optimuscv@proton.me</p>
-        <p>Location: Mandsaur, MP, India</p>
-      </section>
-
-      {/* FOOTER */}
-      <footer className="bg-slate-900 text-white text-center py-6">
-        <p>A rule-based resume analysis system for ATS compatibility.</p>
-        <p className="text-sm mt-2">© 2026 3Dumb Developers</p>
-      </footer>
-
-      {/* MUSIC */}
-      <button
-        onClick={toggleMusic}
-        className="fixed bottom-4 right-4 bg-white p-3 rounded-full shadow"
-      >
-        {isPlaying ? <Pause /> : <Play />}
-      </button>
-
-      <audio ref={audioRef} src="/music.mp3" loop />
-
+      )}
     </div>
   );
 };
