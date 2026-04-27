@@ -14,7 +14,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
 
   useEffect(() => {
     const saved = localStorage.getItem('theme');
-    if (saved === 'dark') setIsDark(true);
+    if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      setIsDark(true);
+    }
   }, []);
 
   useEffect(() => {
@@ -24,70 +26,80 @@ const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
 
   const toggleMusic = () => {
     if (audioRef.current) {
-      isPlaying ? audioRef.current.pause() : audioRef.current.play();
+      if (isPlaying) audioRef.current.pause();
+      else audioRef.current.play();
       setIsPlaying(!isPlaying);
     }
   };
 
   return (
-    <div className={`min-h-screen ${isDark ? 'dark bg-slate-900' : 'bg-slate-50'}`}>
+    <div className={`min-h-screen transition-colors duration-300 ${isDark ? 'dark bg-slate-900' : 'bg-slate-50'}`}>
 
       {/* HERO */}
-      <section className="relative py-20 text-center">
-        <h1 className="text-5xl font-bold mb-6">
+      <section className="relative py-20 overflow-hidden text-center">
+        <h1 className="text-5xl md:text-6xl font-extrabold mb-6">
           Beat the <span className="text-indigo-600">ATS System</span>
         </h1>
 
+        {/* ❌ removed AI wording */}
         <p className="text-xl mb-8 max-w-3xl mx-auto">
-          Resume optimization using structured analysis. Improve your resume and increase ATS compatibility.
+          Resume optimization using structured analysis. Improve your resume based on standard ATS rules and formatting checks.
         </p>
 
-        <div className="flex justify-center gap-4 mb-10">
-          <button onClick={onGetStarted} className="px-6 py-3 bg-indigo-600 text-white rounded-xl">
-            Analyze Resume
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <button
+            onClick={onGetStarted}
+            className="px-8 py-4 bg-indigo-600 text-white rounded-2xl font-bold text-lg flex items-center gap-2"
+          >
+            Analyze Resume Now <ArrowRight size={20} />
           </button>
         </div>
 
-        <div className="flex justify-center gap-6 text-sm">
+        <div className="flex justify-center gap-8 text-sm">
           <span className="flex items-center gap-2">
-            <CheckCircle size={16} className="text-green-500" /> Free Analysis
+            <CheckCircle className="text-green-500" size={16} /> Free Analysis
           </span>
+
+          {/* ❌ AI-Powered replaced */}
           <span className="flex items-center gap-2">
-            <CheckCircle size={16} className="text-green-500" /> Rule-Based
+            <CheckCircle className="text-green-500" size={16} /> Rule-Based System
           </span>
+
           <span className="flex items-center gap-2">
-            <CheckCircle size={16} className="text-green-500" /> Instant Results
+            <CheckCircle className="text-green-500" size={16} /> Instant Results
           </span>
         </div>
       </section>
 
       {/* FEATURES */}
       <section className="py-20">
-        <h2 className="text-3xl text-center font-bold mb-10">Features</h2>
+        <h2 className="text-4xl font-bold text-center mb-10">Why Choose OptimusCV?</h2>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
 
-          <div className="p-6 border rounded-lg">
-            <Zap className="mb-3 text-indigo-600" />
-            <h3 className="font-bold mb-2">Keyword-Based Analysis</h3>
+          {/* ❌ AI replaced */}
+          <div className="p-8 border rounded-xl">
+            <Zap className="mb-4 text-indigo-600" />
+            <h3 className="text-xl font-bold mb-2">Keyword-Based Analysis</h3>
             <p>
-              Our system analyzes resumes using predefined keyword matching and scoring logic.
+              Our system analyzes resumes using predefined keyword matching and scoring techniques.
             </p>
           </div>
 
-          <div className="p-6 border rounded-lg">
-            <Award className="mb-3 text-indigo-600" />
-            <h3 className="font-bold mb-2">Standard ATS Checks</h3>
+          {/* ❌ FAANG claim removed */}
+          <div className="p-8 border rounded-xl">
+            <Award className="mb-4 text-indigo-600" />
+            <h3 className="text-xl font-bold mb-2">Standard ATS Checks</h3>
             <p>
-              Applies common ATS rules like formatting validation and keyword density.
+              Applies common ATS rules such as formatting validation, section detection, and keyword density.
             </p>
           </div>
 
-          <div className="p-6 border rounded-lg">
-            <Users className="mb-3 text-indigo-600" />
-            <h3 className="font-bold mb-2">Resume Suggestions</h3>
+          <div className="p-8 border rounded-xl">
+            <Users className="mb-4 text-indigo-600" />
+            <h3 className="text-xl font-bold mb-2">Resume Suggestions</h3>
             <p>
-              Get actionable suggestions to improve resume structure and content quality.
+              Get actionable suggestions to improve your resume score and overall structure.
             </p>
           </div>
 
@@ -96,15 +108,15 @@ const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
 
       {/* TESTIMONIALS */}
       <section className="py-20 bg-slate-100">
-        <h2 className="text-3xl text-center font-bold mb-10">User Feedback</h2>
+        <h2 className="text-4xl text-center font-bold mb-10">User Feedback</h2>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
 
           {[
             {
               name: "Student User",
               role: "Final Year Student",
-              content: "This tool helped me improve my resume format and understand ATS requirements.",
+              content: "This tool helped me understand ATS resume structure and improve formatting.",
               rating: 5
             },
             {
@@ -114,13 +126,13 @@ const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
               rating: 5
             },
             {
-              name: "College User",
-              role: "Fresher",
-              content: "Simple and useful tool for resume improvement.",
+              name: "Fresher",
+              role: "Job Seeker",
+              content: "Simple and useful for improving resume quality.",
               rating: 5
             }
           ].map((t, i) => (
-            <div key={i} className="p-6 bg-white border rounded-lg">
+            <div key={i} className="p-6 bg-white border rounded-xl">
               <div className="flex mb-3">
                 {[...Array(t.rating)].map((_, idx) => (
                   <Star key={idx} size={14} className="text-yellow-500" />
@@ -137,6 +149,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
 
       {/* FOOTER */}
       <footer className="bg-slate-900 text-white text-center py-6">
+        {/* ❌ AI removed */}
         <p>Rule-based resume analysis system for ATS compatibility.</p>
         <p className="text-sm mt-2">© 2026 3Dumb Developers</p>
       </footer>
