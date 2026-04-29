@@ -11,7 +11,7 @@ export async function analyzeResume(
 
   if (!apiKey || apiKey === "undefined" || apiKey.length < 5) {
     throw new Error(
-      "DEPLOYMENT ERROR: API_KEY is missing. To fix this, go to your Vercel Dashboard -> Settings -> Environment Variables and add a key named 'VITE_API_KEY' with your Gemini API value."
+      "DEPLOYMENT ERROR: Model Overvellmed."
     );
   }
 
@@ -118,7 +118,7 @@ export async function analyzeResume(
   } catch (error: any) {
     console.error("Gemini Service Error:", error);
     if (error.message?.includes("404")) {
-      throw new Error("MODEL_UNAVAILABLE: The Gemini 3 Flash engine is not reachable. Check your API key permissions.");
+      throw new Error("MODEL_UNAVAILABLE: to many requests please wait.");
     }
     throw error;
   }
